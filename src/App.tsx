@@ -7,6 +7,7 @@ import { Input } from "./components/ui/input";
 import { Label } from "./components/ui/label";
 import { Textarea } from "./components/ui/textarea";
 import { Checkbox } from "./components/ui/checkbox";
+import TestMonday from "./components/TestMonday";
 import {
   Select,
   SelectContent,
@@ -69,28 +70,6 @@ import {
   Layers,
   ChevronRight,
 } from "lucide-react";
-
-// src/App.tsx
-import React from "react";
-// imports existants (Button, Card, etc.)
-import TestMonday from "./components/TestMonday";
-
-export default function App() {
-  return (
-    <main className="p-6 space-y-6">
-      {/* tes sections existantes */}
-      {/* <DashboardStats /> */}
-      {/* <StockManagement /> */}
-      {/* ... */}
-
-      <section>
-        <h2 className="text-xl font-semibold mb-2">Diagnostics / Intégration Monday</h2>
-        <TestMonday />  {/* affiché ici */}
-      </section>
-    </main>
-  );
-}
-
 
 interface ProductionStep {
   id: string;
@@ -1512,6 +1491,11 @@ export default function App() {
           {/* Main Content */}
           <main className="p-8">
             <div className="max-w-7xl mx-auto">
+              <section className="mb-6">
+                <h2 className="text-xl font-semibold mb-2">Diagnostics / Intégration Monday</h2>
+                <TestMonday />
+              </section>
+              
               {renderMainContent()}
             </div>
           </main>
