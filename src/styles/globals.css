@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 15px;
+  --font-family: 'Asap', sans-serif;
+  --font-family-sidebar: 'Abel', sans-serif;
+  --background: #F8F9FA;
+  --foreground: #1A202C;
+  --card: #FFFFFF;
+  --card-foreground: #1A202C;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A202C;
+  --primary: #2563EB;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F3F4F6;
+  --secondary-foreground: #1A202C;
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+  --accent: #EFF6FF;
+  --accent-foreground: #1E40AF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --input: #FFFFFF;
+  --input-background: #FFFFFF;
+  --switch-background: #D1D5DB;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #3B82F6;
+  --chart-1: #3B82F6;
+  --chart-2: #10B981;
+  --chart-3: #F59E0B;
+  --chart-4: #8B5CF6;
+  --chart-5: #EC4899;
+  --radius: 0.75rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A202C;
+  --sidebar-primary: #2563EB;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F3F4F6;
+  --sidebar-accent-foreground: #1A202C;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #3B82F6;
+}
+
+.dark {
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  --card: #1A1A1A;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1A1A;
+  --popover-foreground: #FFFFFF;
+  --primary: #FFFFFF;
+  --primary-foreground: #0A0A0A;
+  --secondary: #2A2A2A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2A2A2A;
+  --muted-foreground: #A0A0A0;
+  --accent: #2A2A2A;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #2A2A2A;
+  --input: #2A2A2A;
+  --ring: #404040;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #3B82F6;
+  --chart-2: #10B981;
+  --chart-3: #F59E0B;
+  --chart-4: #8B5CF6;
+  --chart-5: #EC4899;
+  --sidebar: #141414;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #3B82F6;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2A2A2A;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #2A2A2A;
+  --sidebar-ring: #404040;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+/* Police Abel pour la sidebar */
+[data-sidebar] {
+  font-family: var(--font-family-sidebar);
+}
+
+/* Fix Select dropdowns visibility in dark mode - Enhanced specificity */
+.dark [data-radix-select-content],
+.dark [data-slot="select-content"] {
+  background-color: oklch(0.205 0 0) !important;
+  border-color: oklch(0.269 0 0) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+.dark [data-radix-select-item],
+.dark [data-slot="select-item"] {
+  color: oklch(0.985 0 0) !important;
+}
+
+.dark [data-radix-select-item]:hover,
+.dark [data-radix-select-item][data-highlighted],
+.dark [data-radix-select-item][data-state="checked"],
+.dark [data-slot="select-item"]:hover,
+.dark [data-slot="select-item"][data-highlighted],
+.dark [data-slot="select-item"][data-state="checked"] {
+  background-color: oklch(0.269 0 0) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+.dark [data-radix-select-trigger],
+.dark [data-slot="select-trigger"] {
+  background-color: oklch(0.205 0 0) !important;
+  border-color: oklch(0.269 0 0) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+.dark [data-radix-select-trigger]:hover,
+.dark [data-slot="select-trigger"]:hover {
+  background-color: oklch(0.25 0 0) !important;
+}
+
+.dark [data-radix-select-value],
+.dark [data-slot="select-value"] {
+  color: oklch(0.985 0 0) !important;
+}
+
+.dark [data-radix-select-trigger][data-placeholder],
+.dark [data-slot="select-trigger"][data-placeholder] {
+  color: oklch(0.708 0 0) !important;
+}
+
+.dark [data-radix-select-label],
+.dark [data-slot="select-label"] {
+  color: oklch(0.708 0 0) !important;
+}
+
+/* Additional Radix UI Select fixes */
+.dark .dark\:bg-gray-800 [data-radix-select-content] {
+  background-color: oklch(0.205 0 0) !important;
+}
+
+.dark .dark\:bg-gray-800 [data-radix-select-item] {
+  color: oklch(0.985 0 0) !important;
+}
+
+/* Ensure text content in Select items is white */
+.dark [data-radix-select-item] span,
+.dark [data-slot="select-item"] span {
+  color: oklch(0.985 0 0) !important;
+}
+
+/* Fix for SelectContent with bg-gray-800 class */
+.dark .bg-gray-800[data-radix-select-content],
+.dark .bg-gray-800[data-slot="select-content"] {
+  background-color: oklch(0.205 0 0) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+/* Universal fix for any text in Select components */
+.dark [data-radix-select-content] *,
+.dark [data-slot="select-content"] * {
+  color: oklch(0.985 0 0) !important;
+}
+
+/* Ultra-specific fixes for Select components with maximum specificity */
+body.dark [data-radix-select-content] {
+  background-color: oklch(0.205 0 0) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+body.dark [data-radix-select-item] {
+  color: oklch(0.985 0 0) !important;
+}
+
+body.dark [data-radix-select-item]:hover {
+  background-color: oklch(0.269 0 0) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+body.dark [data-radix-select-item][data-highlighted] {
+  background-color: oklch(0.269 0 0) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+body.dark [data-radix-select-item][data-state="checked"] {
+  background-color: oklch(0.439 0.243 264.376) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+/* Force white text on all Select elements */
+.dark [role="listbox"] {
+  background-color: oklch(0.205 0 0) !important;
+}
+
+.dark [role="option"] {
+  color: oklch(0.985 0 0) !important;
+}
+
+.dark [role="option"]:hover {
+  background-color: oklch(0.269 0 0) !important;
+  color: oklch(0.985 0 0) !important;
+}
+
+/* Force styles for any element within Select that might contain text */
+.dark [data-radix-select-viewport] * {
+  color: oklch(0.985 0 0) !important;
+}
+
+.dark [data-radix-select-item-text] {
+  color: oklch(0.985 0 0) !important;
+}
+
+/* Cleaned up - Custom modal CSS (if needed) */
