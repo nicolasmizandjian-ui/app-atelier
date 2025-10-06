@@ -70,6 +70,28 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+// src/App.tsx
+import React from "react";
+// imports existants (Button, Card, etc.)
+import TestMonday from "./components/TestMonday";
+
+export default function App() {
+  return (
+    <main className="p-6 space-y-6">
+      {/* tes sections existantes */}
+      {/* <DashboardStats /> */}
+      {/* <StockManagement /> */}
+      {/* ... */}
+
+      <section>
+        <h2 className="text-xl font-semibold mb-2">Diagnostics / Intégration Monday</h2>
+        <TestMonday />  {/* affiché ici */}
+      </section>
+    </main>
+  );
+}
+
+
 interface ProductionStep {
   id: string;
   name: string;
