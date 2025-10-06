@@ -1495,7 +1495,11 @@ export default function App() {
                 <h2 className="text-xl font-semibold mb-2">Diagnostics / Intégration Monday</h2>
                 <TestMonday />
               </section>
-              
+              <section className="mb-6">
+                <h2 className="text-xl font-semibold mb-2">Diagnostics / Intégration Monday</h2>
+                <TestMonday />
+              </section>
+
               {renderMainContent()}
             </div>
           </main>
